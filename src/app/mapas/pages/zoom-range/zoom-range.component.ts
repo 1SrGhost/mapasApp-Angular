@@ -9,6 +9,7 @@ import * as mapboxgl from 'mapbox-gl';
 export class ZoomRangeComponent implements AfterViewInit {
   @ViewChild('mapa') divMapa!: ElementRef;
   mapa!: mapboxgl.Map;
+  zoomLevel: number = 10;
 
   constructor() {}
 
@@ -17,7 +18,12 @@ export class ZoomRangeComponent implements AfterViewInit {
       container: this.divMapa.nativeElement,
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [-75.21187326837463, 3.2155945571183864],
-      zoom: 17,
+      zoom: this.zoomLevel,
+    });
+
+    this.mapa.on('zoom', (event) => {
+     
+      this.zoomLevel = this.mapa.getZoom();
     });
   }
 
