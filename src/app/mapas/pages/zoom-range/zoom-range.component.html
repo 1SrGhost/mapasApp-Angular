@@ -1,4 +1,4 @@
-<div id="mapa" class="mapa-container"></div> 
+<div #mapa class="mapa-container"></div> 
 
 <div class="row">
     <div class="col-12">
@@ -10,7 +10,7 @@
         <input type="range" class="form-range">
     </div>
     <div class="col-12">
-        <button class="btn btn-primary">-</button>
-        <Button class="btn btn-primary float-end">+</Button>
+        <button class="btn btn-primary" (click)="zoomOut()">-</button>
+        <Button class="btn btn-primary float-end" (click)="zoomIn()">+</Button>
     </div>
 </div>
