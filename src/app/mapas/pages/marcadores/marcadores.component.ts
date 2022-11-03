@@ -27,8 +27,18 @@ export class MarcadoresComponent implements AfterViewInit {
       zoom: this.zoomLevel,
     });
 
-    const markerHtml: HTMLElement = document.createElement('div');
-    markerHtml.innerHTML = 'Hola Mundo';
-    new mapboxgl.Marker().setLngLat(this.center).addTo(this.mapa);
+    /* Creación de un marcador en el mapa. */
+    // const markerHtml: HTMLElement = document.createElement('div');
+    // markerHtml.innerHTML = 'Hola Mundo';
+    // new mapboxgl.Marker().setLngLat(this.center).addTo(this.mapa);
   }
+  agregarMarcador() {
+    const color = '#xxxxxx'.replace(/x/g, (y) =>
+      ((Math.random() * 16) | 0).toString(16)
+    );
+    const nuevoMarcador = new mapboxgl.Marker({ draggable: true, color })
+      .setLngLat(this.center)
+      .addTo(this.mapa);
+  }
+  irMarcador() {}
 }
